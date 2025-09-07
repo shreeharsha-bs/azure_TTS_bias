@@ -6,12 +6,10 @@ echo "🎤 Azure Text-to-Speech CLI Setup"
 echo "=================================="
 
 # Check if Python 3 is installed
-if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 is not installed. Please install Python 3.7 or higher."
+if ! command -v python &> /dev/null; then
+    echo "Python is not installed. Please install Python 3.7 or higher."
     exit 1
 fi
-
-echo "✅ Python 3 found: $(python3 --version)"
 
 # Create virtual environment if it doesn't exist
 if [ ! -d "venv" ]; then
