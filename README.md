@@ -2,15 +2,6 @@
 
 A command-line interface for Azure Cognitive Services Text-to-Speech that allows you to convert text to speech with customizable voice selection.
 
-## Features
-
-- 🎤 Multiple voice options with easy-to-remember aliases
-- 📄 Batch processing from text files
-- 🔊 Direct audio playback or file output
-- 🌍 Support for multiple languages and accents
-- ⚙️ Environment-based configuration
-- 📋 Command-line interface with comprehensive options
-
 ## Installation
 
 1. Clone or download this repository
@@ -24,10 +15,6 @@ pip install -r requirements.txt
 
 ## Configuration
 
-### Azure Speech Service Setup
-
-1. Create an Azure Speech Service resource in the [Azure Portal](https://portal.azure.com/)
-2. Get your Speech Key and Region from the resource
 
 ### Environment Variables
 
@@ -36,7 +23,6 @@ Create a `.env` file in the project directory with your Azure credentials:
 ```env
 SPEECH_KEY=your_speech_service_key_here
 SPEECH_REGION=your_region_here
-VOICE_NAME=en-US-AvaMultilingualNeural
 ```
 
 **Important**: Never commit your `.env` file to version control. It contains sensitive credentials.
