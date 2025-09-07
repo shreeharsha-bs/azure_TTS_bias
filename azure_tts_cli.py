@@ -27,17 +27,12 @@ class AzureTTS:
     
     # Popular voice options
     POPULAR_VOICES = {
-        "ava": "en-US-AvaMultilingualNeural",
+        "ava": "en-US-AvaNeural",
         "andrew": "en-US-AndrewMultilingualNeural", 
         "emma": "en-US-EmmaMultilingualNeural",
         "brian": "en-US-BrianMultilingualNeural",
-        "jenny": "en-US-JennyMultilingualNeural",
-        "sonia": "en-GB-SoniaNeural",
-        "natasha": "en-AU-NatashaNeural",
-        "alvaro": "es-ES-AlvaroNeural",
-        "denise": "fr-FR-DeniseNeural",
-        "katja": "de-DE-KatjaNeural",
-        "nanami": "ja-JP-NanamiNeural"
+        "sarah": "en-US-SaraNeural",
+        "christopher": "en-US-ChristopherNeural"
     }
     
     def __init__(self, voice_name=None):
@@ -57,7 +52,7 @@ class AzureTTS:
         elif voice_name:
             self.voice_name = voice_name
         else:
-            self.voice_name = os.environ.get('VOICE_NAME', 'en-US-AvaMultilingualNeural')
+            self.voice_name = os.environ.get('VOICE_NAME', 'en-US-AvaNeural')
         
         # Configure speech service
         endpoint_url = f"https://{self.region}.api.cognitive.microsoft.com/sts/v1.0/issuetoken"

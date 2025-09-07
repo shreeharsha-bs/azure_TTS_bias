@@ -59,10 +59,10 @@ python azure_tts_cli.py -f sentences.txt --prefix "speech" -d ./output
 python azure_tts_cli.py --list-voices
 
 # Use voice shortcut
-python azure_tts_cli.py -t "Hello" -v jenny
+python azure_tts_cli.py -t "Hello" -v christopher
 
 # Use full Azure voice name
-python azure_tts_cli.py -t "Hello" -v "en-GB-SoniaNeural"
+python azure_tts_cli.py -t "Hello" -v "en-US-ChristopherNeural"
 ```
 
 ## Command-Line Options
@@ -74,8 +74,8 @@ python azure_tts_cli.py -t "Hello" -v "en-GB-SoniaNeural"
 
 ### Voice Selection
 - `-v, --voice VOICE`: Voice name (default: ava)
-  - Use shortcuts like: ava, emma, jenny, brian, sonia, etc.
-  - Or full Azure voice names like: en-US-AvaMultilingualNeural
+  - Use shortcuts like: ava, emma, andrew, brian, sarah, christopher
+  - Or full Azure voice names like: en-US-AvaNeural
 
 ### Output Options
 - `-o, --output FILE`: Output audio file (for single text)
@@ -91,17 +91,12 @@ python azure_tts_cli.py -t "Hello" -v "en-GB-SoniaNeural"
 
 | Shortcut | Full Voice Name | Language/Accent |
 |----------|----------------|-----------------|
-| ava | en-US-AvaMultilingualNeural | US English (Multilingual) |
+| ava | en-US-AvaNeural | US English |
 | andrew | en-US-AndrewMultilingualNeural | US English (Multilingual) |
 | emma | en-US-EmmaMultilingualNeural | US English (Multilingual) |
 | brian | en-US-BrianMultilingualNeural | US English (Multilingual) |
-| jenny | en-US-JennyMultilingualNeural | US English (Multilingual) |
-| sonia | en-GB-SoniaNeural | UK English |
-| natasha | en-AU-NatashaNeural | Australian English |
-| alvaro | es-ES-AlvaroNeural | Spanish |
-| denise | fr-FR-DeniseNeural | French |
-| katja | de-DE-KatjaNeural | German |
-| nanami | ja-JP-NanamiNeural | Japanese |
+| sarah | en-US-SaraNeural | US English |
+| christopher | en-US-ChristopherNeural | US English |
 
 ## Text File Format
 
