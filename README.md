@@ -80,7 +80,7 @@ python azure_tts_cli.py -t "Hello" -v "en-US-ChristopherNeural"
 ### Output Options
 - `-o, --output FILE`: Output audio file (for single text)
 - `-d, --output-dir DIR`: Output directory for multiple files (default: ./output)
-- `--prefix PREFIX`: Filename prefix for multiple files (default: tts)
+- `--prefix PREFIX`: Filename prefix for multiple files (default: voice name, e.g., ava, emma)
 - `--play`: Play audio through speakers instead of saving
 
 ### Other Options
@@ -120,36 +120,39 @@ python azure_tts_cli.py -t "Welcome to Azure Text-to-Speech!" -v ava -o welcome.
 ### Example 2: Batch Processing
 ```bash
 # Create a text file
-echo -e "Hello world!\nHow are you today?\nHave a great day!" > greetings.txt
+echo -e "Hello world!\nHow are you today!\nHave a great day!" > greetings.txt
 
-# Process the file
+# Process the file (will use voice name as prefix automatically)
+python azure_tts_cli.py -f greetings.txt -v emma -d ./greetings_audio
+```
+
+This will create:
+
+- `greetings_audio/emma_001.wav`
+- `greetings_audio/emma_002.wav`
+- `greetings_audio/emma_003.wav`
+
+Or with a custom prefix:
+
+```bash
 python azure_tts_cli.py -f greetings.txt -v emma -d ./greetings_audio --prefix greeting
 ```
 
 This will create:
+
 - `greetings_audio/greeting_001.wav`
-- `greetings_audio/greeting_002.wav` 
+- `greetings_audio/greeting_002.wav`
 - `greetings_audio/greeting_003.wav`
 
 ### Example 3: Interactive Playback
+
 ```bash
 python azure_tts_cli.py -f announcements.txt -v brian --play --verbose
 ```
 
-## Error Handling
-
-The tool provides clear error messages for common issues:
-
-- Missing Azure credentials
-- Invalid voice names
-- File not found errors
-- Azure service errors
-
 ## Requirements
 
 - Python 3.7+
-- Azure Speech Service subscription
-- Internet connection for Azure API calls
 
 ## Dependencies
 
@@ -157,23 +160,3 @@ See `requirements.txt` for the complete list of Python dependencies:
 
 - `azure-cognitiveservices-speech`: Azure Speech SDK
 - `python-dotenv`: Environment variable management
-
-## License
-
-This project is open source. Please check the license file for details.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues and enhancement requests.
-
-## Support
-
-For Azure Speech Service documentation and support:
-- [Azure Speech Service Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/)
-- [Neural Voice Language Support](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#neural-voices)
-
-## Security Notes
-
-- Never commit your `.env` file or expose your Azure Speech Service credentials
-- Use environment variables or secure credential management in production
-- The `.gitignore` file is configured to exclude sensitive files

@@ -189,7 +189,7 @@ def main():
     parser.add_argument(
         '--prefix',
         default='tts',
-        help='Filename prefix for multiple files. Default: tts'
+        help='Filename prefix for multiple files. Default: voice name (e.g., ava, emma)'
     )
     
     # Other options
@@ -217,6 +217,21 @@ def main():
             print(f"Initializing Azure TTS with voice: {args.voice}")
         
         tts = AzureTTS(voice_name=args.voice)
+        
+        # Set prefix to voice shortcut if not explicitly provided
+        if args.prefix == 'tts':  # Default prefix value
+            # Check if the voice is a shortcut name
+            voice_shortcut = args.voice.lower()
+            if voice_shortcut in AzureTTS.POPULAR_VOICES:
+                args.prefix = voice_shortcut
+            else:
+                # For full voice names, extract a meaningful prefix
+                if 'en-US-' in args.voice:
+                    # Extract voice name from full Azure voice name
+                    voice_part = args.voice.replace('en-US-', '').replace('Neural', '').replace('Multilingual', '')
+                    args.prefix = voice_part.lower()
+                else:
+                    args.prefix = 'tts'  # Keep default for unknown formats
         
         if args.verbose:
             print(f"Using Azure voice: {tts.voice_name}")
