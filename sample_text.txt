@@ -1,0 +1,5 @@
+Welcome to Azure Text-to-Speech!
+This is a sample sentence for testing.
+The weather is beautiful today.
+Have a wonderful day ahead!
+Thank you for using our CLI tool.
